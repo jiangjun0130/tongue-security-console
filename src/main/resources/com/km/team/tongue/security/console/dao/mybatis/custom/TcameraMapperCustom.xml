@@ -65,4 +65,60 @@
       and yearweek(str_to_date(c.creat_time, '%Y-%m-%d')) = yearweek(now())
   </select>
 
+    <select id="getCurrentWeekTotal2" resultType="int" parameterType="list">
+        select count(1) from tcamera c where c.cam_org_id in (
+        select t.org_id
+        from torganization t
+        where t.is_enable=true
+        and t.controlUnitName in
+        <foreach item="item" index="index" collection="list"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        )
+        and yearweek(str_to_date(c.creat_time, '%Y-%m-%d')) = yearweek(now())
+    </select>
+
+    <select id="getLastWeekTotal2" resultType="int" parameterType="list">
+        select count(1) from tcamera c where c.cam_org_id in (
+        select t.org_id
+        from torganization t
+        where t.is_enable=true
+        and t.controlUnitName in
+        <foreach item="item" index="index" collection="list"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        )
+        and yearweek(str_to_date(c.creat_time, '%Y-%m-%d')) = yearweek(now())-1
+    </select>
+
+    <select id="getCategoryOnlineTotal2" resultType="int" parameterType="list">
+        select count(1) from tcamera c where c.cam_org_id in (
+        select t.org_id
+        from torganization t
+        where t.is_enable=true
+        and t.controlUnitName in
+        <foreach item="item" index="index" collection="list"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        )
+        and c.cam_state=1
+    </select>
+
+    <select id="getCategoryOfflineTotal2" resultType="int" parameterType="list">
+        select count(1) from tcamera c where c.cam_org_id in (
+        select t.org_id
+        from torganization t
+        where t.is_enable=true
+        and t.controlUnitName in
+        <foreach item="item" index="index" collection="list"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        )
+        and c.cam_state=0
+    </select>
+
 </mapper>

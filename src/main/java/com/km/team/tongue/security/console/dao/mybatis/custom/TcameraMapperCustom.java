@@ -1,5 +1,7 @@
 package com.km.team.tongue.security.console.dao.mybatis.custom;
 
+import java.util.List;
+
 public interface TcameraMapperCustom {
 
     int getOnlineTotal();
@@ -39,4 +41,12 @@ public interface TcameraMapperCustom {
      * @return
      */
     Integer getWeekIncrTotal();
+
+    int getCurrentWeekTotal2(List<String> keys);
+
+    int getLastWeekTotal2(List<String> keys);
+
+    int getCategoryOnlineTotal2(List<String> keys);
+
+    int getCategoryOfflineTotal2(List<String> keys);
 }
