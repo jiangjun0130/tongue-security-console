@@ -69,16 +69,15 @@ public class MessageServiceImpl implements IMessageService {
 
     @Override
     public Map<String, List<Integer>> getCabinetWarn() {
-        //TODO:补齐一下3中类型id
         Map<String, List<Integer>> map = new HashMap<>(3);
         // 消毒柜
-        HashMap<String, Object> disinfectionCabinetMap = mapperCustom.getTotal("131627");
+        HashMap<String, Object> disinfectionCabinetMap = mapperCustom.getDisinfectionCabinetTotal();
         map.put("disinfectionCabinetMap", map2List(disinfectionCabinetMap));
         // 留样柜
-        HashMap<String, Object> sampleCabinetMap = mapperCustom.getTotal("131625");
+        HashMap<String, Object> sampleCabinetMap = mapperCustom.getSampleCabinetTotal();
         map.put("sampleCabinetMap", map2List(sampleCabinetMap));
         // 紫外灯
-        HashMap<String, Object> lampMap = mapperCustom.getTotal("131625");
+        HashMap<String, Object> lampMap = mapperCustom.getLampTotal();
         map.put("lampMap",map2List(lampMap));
         return map;
     }

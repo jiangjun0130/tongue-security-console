@@ -32,4 +32,47 @@
     and date_format(t.createTime, '%Y-%m-%d') = date_format(now(), '%Y-%m-%d')
   </select>
 
+  <select id="getSampleCabinetTotal" resultType="hashMap">
+      select
+        IFNULL(count(HOUR(t.createTime) in ('0','1','2','3') or null ),0) four,
+        IFNULL(count(HOUR(t.createTime) in ('4','5','6','7') or null ),0) eight,
+        IFNULL(count(HOUR(t.createTime) in ('8','9','10','11') or null ),0) twelve,
+        IFNULL(count(HOUR(t.createTime) in ('12','13','14','15') or null ),0) sixteen,
+        IFNULL(count(HOUR(t.createTime) in ('16','17','18','19') or null ),0) twenty,
+        IFNULL(count(HOUR(t.createTime) in ('20','21','22','23') or null ),0) twentyFour
+    from ficetan_record t
+    where t.state != 1
+    and date_format(t.createTime, '%Y-%m-%d') = date_format(now(), '%Y-%m-%d')
+  </select>
+
+  <select id="getDisinfectionCabinetTotal" resultType="hashMap">
+      <![CDATA[
+      select
+        IFNULL(count(HOUR(t.createTime) in ('0','1','2','3') or null ),0) four,
+        IFNULL(count(HOUR(t.createTime) in ('4','5','6','7') or null ),0) eight,
+        IFNULL(count(HOUR(t.createTime) in ('8','9','10','11') or null ),0) twelve,
+        IFNULL(count(HOUR(t.createTime) in ('12','13','14','15') or null ),0) sixteen,
+        IFNULL(count(HOUR(t.createTime) in ('16','17','18','19') or null ),0) twenty,
+        IFNULL(count(HOUR(t.createTime) in ('20','21','22','23') or null ),0) twentyFour
+        from fdisinfect_record t
+        where (t.time < 10 or t.highest < 100)
+        and date_format(t.createTime, '%Y-%m-%d') = date_format(now(), '%Y-%m-%d')
+        ]]>
+  </select>
+
+  <select id="getLampTotal" resultType="hashMap">
+    <![CDATA[
+      select
+        IFNULL(count(HOUR(t.createTime) in ('0','1','2','3') or null ),0) four,
+        IFNULL(count(HOUR(t.createTime) in ('4','5','6','7') or null ),0) eight,
+        IFNULL(count(HOUR(t.createTime) in ('8','9','10','11') or null ),0) twelve,
+        IFNULL(count(HOUR(t.createTime) in ('12','13','14','15') or null ),0) sixteen,
+        IFNULL(count(HOUR(t.createTime) in ('16','17','18','19') or null ),0) twenty,
+        IFNULL(count(HOUR(t.createTime) in ('20','21','22','23') or null ),0) twentyFour
+        from fuv_lamp_record t
+        where (t.nums < 70 or t.time < 30)
+        and date_format(t.createTime, '%Y-%m-%d') = date_format(now(), '%Y-%m-%d')
+    ]]>
+  </select>
+
 </mapper>
