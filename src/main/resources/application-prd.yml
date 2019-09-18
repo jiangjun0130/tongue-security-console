@@ -1,14 +1,14 @@
 #######################################datasource配置########################################################
 spring:
   application:
-    name: phsystem-server
+    name: tongue-security-console
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      url: jdbc:mysql://127.0.0.1:3331/phsystem?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
+      url: jdbc:mysql://127.0.0.1:3306/sy?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
       username: root
-      password: gX@72s1~r
+      password: shejian360_2015
       # 初始化连接大小
       initial-size: 8
       # 最小空闲连接数
@@ -65,7 +65,7 @@ spring:
 
 #######################################系统配置########################################################
 server:
-  port: 9090
+  port: 8190
 
 # 系统日志保存目录
 log_dir: /root/tongue-security-console/logs

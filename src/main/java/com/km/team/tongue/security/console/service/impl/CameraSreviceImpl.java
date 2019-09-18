@@ -107,8 +107,11 @@ public class CameraSreviceImpl implements ICameraService {
         map.put("onlineRatio", onlineRatio);
         map.put("currentWeekTotal", currentWeekTotal);
         int diff = currentWeekTotal - lastWeekTotal;
-        diff = diff > 0? diff : 0;
         String incrRatio = lastWeekTotal == 0 ? "0" : numberFormat.format(((float)(diff) / (float) lastWeekTotal) * 100);
+        if(lastWeekTotal == 0) {
+            incrRatio = (currentWeekTotal * 100) + "";
+        }
+//        String incrRatio = lastWeekTotal == 0 ? "0" : numberFormat.format(((float)(currentWeekTotal) / (float) lastWeekTotal) * 100);
         map.put("incrRatio", incrRatio);
         return map;
     }
@@ -129,8 +132,11 @@ public class CameraSreviceImpl implements ICameraService {
         map.put("onlineRatio", onlineRatio);
         map.put("currentWeekTotal", currentWeekTotal);
         int diff = currentWeekTotal - lastWeekTotal;
-        diff = diff > 0? diff : 0;
         String incrRatio = lastWeekTotal == 0 ? "0" : numberFormat.format(((float)(diff) / (float) lastWeekTotal) * 100);
+        if(lastWeekTotal == 0) {
+            incrRatio = (currentWeekTotal * 100) + "";
+        }
+//        String incrRatio = lastWeekTotal == 0 ? "0" : numberFormat.format(((float)(currentWeekTotal) / (float) lastWeekTotal) * 100);
         map.put("incrRatio", incrRatio);
         return map;
     }
