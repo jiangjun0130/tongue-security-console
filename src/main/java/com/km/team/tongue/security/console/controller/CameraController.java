@@ -107,7 +107,7 @@ public class CameraController extends BaseController<CameraController> {
     }
 
     /**
-     * 摄像头分类接入统计--集体聚餐
+     * 摄像头分类接入统计--近一周新增单位
      * @return
      */
     @GetMapping("lastWeekIncr")
