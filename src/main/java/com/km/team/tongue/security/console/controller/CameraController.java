@@ -56,4 +56,54 @@ public class CameraController extends BaseController<CameraController> {
         return ResponseDataUtil.buildSuccess(map);
     }
 
+    /**
+     * 摄像头分类接入统计--社会餐饮
+     * @return
+     */
+    @GetMapping("socialCaterJoinTotal")
+    public ResponseData socialCaterJoinTotal() {
+        Map<String, Object> map = cameraService.socialCaterJoinTotal();
+        return ResponseDataUtil.buildSuccess(map);
+    }
+
+    /**
+     * 摄像头分类接入统计--职工食堂
+     * @return
+     */
+    @GetMapping("staffDiningHallCaterJoinTotal")
+    public ResponseData staffDiningHallCaterJoinTotal() {
+        Map<String, Object> map = cameraService.staffDiningHallCaterJoinTotal();
+        return ResponseDataUtil.buildSuccess(map);
+    }
+
+    /**
+     * 摄像头分类接入统计--学校食堂
+     * @return
+     */
+    @GetMapping("schoolDiningHallCaterJoinTotal")
+    public ResponseData schoolDiningHallCaterJoinTotal() {
+        Map<String, Object> map = cameraService.schoolDiningHallCaterJoinTotal();
+        return ResponseDataUtil.buildSuccess(map);
+    }
+
+    /**
+     * 摄像头分类接入统计--阳光车间
+     * @return
+     */
+    @GetMapping("shiningWorkshopCaterJoinTotal")
+    public ResponseData shiningWorkshopCaterJoinTotal() {
+        Map<String, Object> map = cameraService.shiningWorkshopCaterJoinTotal();
+        return ResponseDataUtil.buildSuccess(map);
+    }
+
+    /**
+     * 摄像头分类接入统计--集体聚餐
+     * @return
+     */
+    @GetMapping("unionDinnerCaterJoinTotal")
+    public ResponseData unionDinnerCaterJoinTotal() {
+        Map<String, Object> map = cameraService.unionDinnerCaterJoinTotal();
+        return ResponseDataUtil.buildSuccess(map);
+    }
+
 }

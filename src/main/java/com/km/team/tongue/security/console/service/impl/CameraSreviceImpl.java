@@ -91,6 +91,37 @@ public class CameraSreviceImpl implements ICameraService {
         return mapperCustom.getWeekIncrTotal();
     }
 
+    @Override
+    public Map<String, Object> socialCaterJoinTotal() {
+        return calc("社会餐饮");
+    }
+
+    @Override
+    public Map<String, Object> staffDiningHallCaterJoinTotal() {
+        return calc("职工食堂");
+    }
+
+    @Override
+    public Map<String, Object> schoolDiningHallCaterJoinTotal() {
+        return calc("学校食堂");
+    }
+
+    @Override
+    public Map<String, Object> shiningWorkshopCaterJoinTotal() {
+        return calc("阳光车间");
+    }
+
+    @Override
+    public Map<String, Object> unionDinnerCaterJoinTotal() {
+        List<String> unionList = new ArrayList<>();
+        unionList.add("集体聚餐");
+        unionList.add("农村聚餐");
+        Map<String, Object> unionMap = calc2(unionList);
+        Map<String, Map<String, Object>> unionMaps = new HashMap<>();
+        unionMaps.put("集体聚餐", unionMap);
+        return unionMap;
+    }
+
     private Map<String, Object> calc(String key) {
         Map<String, Object> map = new HashMap<>();
         int currentWeekTotal = mapperCustom.getCurrentWeekTotal(key);

@@ -38,4 +38,34 @@ public interface ICameraService {
      * @return
      */
     Integer getWeekIncrTotal();
+
+    /**
+     * 社会餐饮
+     * @return
+     */
+    Map<String, Object> socialCaterJoinTotal();
+
+    /**
+     * 职工食堂
+     * @return
+     */
+    Map<String, Object> staffDiningHallCaterJoinTotal();
+
+    /**
+     * 学校食堂
+     * @return
+     */
+    Map<String, Object> schoolDiningHallCaterJoinTotal();
+
+    /**
+     * 阳光车间
+     * @return
+     */
+    Map<String, Object> shiningWorkshopCaterJoinTotal();
+
+    /**
+     * 集体聚餐
+     * @return
+     */
+    Map<String, Object> unionDinnerCaterJoinTotal();
 }
