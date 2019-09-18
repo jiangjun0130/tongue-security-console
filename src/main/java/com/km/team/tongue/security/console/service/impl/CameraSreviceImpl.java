@@ -122,6 +122,12 @@ public class CameraSreviceImpl implements ICameraService {
         return unionMap;
     }
 
+    @Override
+    public Map<String, Object> allJoinTotal() {
+        Map<String, Object> allMap = calc(null);
+        return allMap;
+    }
+
     private Map<String, Object> calc(String key) {
         Map<String, Object> map = new HashMap<>();
         int currentWeekTotal = mapperCustom.getCurrentWeekTotal(key);

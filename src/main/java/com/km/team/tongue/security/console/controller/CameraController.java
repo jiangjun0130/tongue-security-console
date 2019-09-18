@@ -42,19 +42,19 @@ public class CameraController extends BaseController<CameraController> {
      * 摄像头分类接入统计
      * @return
      */
-//    @GetMapping("categoryJoinTotal")
-//    public ResponseData categoryJoinTotal() {
-//        List<Map<String, Map<String, Object>>> maps = cameraService.categoryJoinTotal();
-//        int lastWeekOrgTotal = orgService.getLastWeekTotal();
-//        int lastWeekCameraTotal = cameraService.getLastWeekTotal();
-//        Map<String, Object> map = new HashMap<>();
-//        // 分类统计信息
-//        map.put("categoryTotal", maps);
-//        // 近一周新增单位
-//        map.put("lastWeekOrgTotal", lastWeekOrgTotal);
-//        map.put("lastWeekCameraTotal", lastWeekCameraTotal);
-//        return ResponseDataUtil.buildSuccess(map);
-//    }
+    @GetMapping("categoryJoinTotal")
+    public ResponseData categoryJoinTotal() {
+        List<Map<String, Map<String, Object>>> maps = cameraService.categoryJoinTotal();
+        int lastWeekOrgTotal = orgService.getLastWeekTotal();
+        int lastWeekCameraTotal = cameraService.getLastWeekTotal();
+        Map<String, Object> map = new HashMap<>();
+        // 分类统计信息
+        map.put("categoryTotal", maps);
+        // 近一周新增单位
+        map.put("lastWeekOrgTotal", lastWeekOrgTotal);
+        map.put("lastWeekCameraTotal", lastWeekCameraTotal);
+        return ResponseDataUtil.buildSuccess(map);
+    }
 
     /**
      * 摄像头分类接入统计--社会餐饮
@@ -103,6 +103,16 @@ public class CameraController extends BaseController<CameraController> {
     @GetMapping("unionDinnerCaterJoinTotal")
     public ResponseData unionDinnerCaterJoinTotal() {
         Map<String, Object> map = cameraService.unionDinnerCaterJoinTotal();
+        return ResponseDataUtil.buildSuccess(map);
+    }
+
+    /**
+     * 摄像头分类接入统计--全部
+     * @return
+     */
+    @GetMapping("allJoinTotal")
+    public ResponseData allJoinTotal() {
+        Map<String, Object> map = cameraService.allJoinTotal();
         return ResponseDataUtil.buildSuccess(map);
     }
 

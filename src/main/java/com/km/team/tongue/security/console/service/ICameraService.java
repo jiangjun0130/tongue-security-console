@@ -68,4 +68,10 @@ public interface ICameraService {
      * @return
      */
     Map<String, Object> unionDinnerCaterJoinTotal();
+
+    /**
+     * 全部
+     * @return
+     */
+    Map<String, Object> allJoinTotal();
 }
