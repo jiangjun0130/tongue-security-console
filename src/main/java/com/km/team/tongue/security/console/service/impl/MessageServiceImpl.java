@@ -33,19 +33,40 @@ public class MessageServiceImpl implements IMessageService {
         return hatList;
     }
 
+//    @Override
+//    public Map<String, List<Integer>> getCookWarn() {
+//        Map<String, List<Integer>> map = new HashMap<>(3);
+//        // 统计当天厨师 白色厨师帽 告警
+//        HashMap<String, Object> hatMap = mapperCustom.getTotal("422000007");
+//        map.put("hatMap", map2List(hatMap));
+//        // 统计当天厨师 白色口罩 告警
+//        HashMap<String, Object> maskMap = mapperCustom.getTotal("422000005");
+//        map.put("maskMap", map2List(maskMap));
+//        // 统计当天厨师 未穿白色厨师服 告警
+//        HashMap<String, Object> clothesMap = mapperCustom.getTotal("422000003");
+//        map.put("clothesMap", map2List(clothesMap));
+//        return map;
+//    }
+
     @Override
-    public Map<String, List<Integer>> getCookWarn() {
-        Map<String, List<Integer>> map = new HashMap<>(3);
+    public List<Integer> getCookHatWarn() {
         // 统计当天厨师 白色厨师帽 告警
         HashMap<String, Object> hatMap = mapperCustom.getTotal("422000007");
-        map.put("hatMap", map2List(hatMap));
+        return map2List(hatMap);
+    }
+
+    @Override
+    public List<Integer> getCookMaskWarn() {
         // 统计当天厨师 白色口罩 告警
         HashMap<String, Object> maskMap = mapperCustom.getTotal("422000005");
-        map.put("maskMap", map2List(maskMap));
+        return map2List(maskMap);
+    }
+
+    @Override
+    public List<Integer> getCookClothesWarn() {
         // 统计当天厨师 未穿白色厨师服 告警
         HashMap<String, Object> clothesMap = mapperCustom.getTotal("422000003");
-        map.put("clothesMap", map2List(clothesMap));
-        return map;
+        return map2List(clothesMap);
     }
 
     @Override

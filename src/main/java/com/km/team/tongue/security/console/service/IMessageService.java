@@ -15,7 +15,7 @@ public interface IMessageService {
      * 厨师警告统计
      * @return
      */
-    Map<String, List<Integer>> getCookWarn();
+//    Map<String, List<Integer>> getCookWarn();
 
     /**
      * 湿度、温度、持证上岗
@@ -29,4 +29,9 @@ public interface IMessageService {
      */
     Map<String, List<Integer>> getCabinetWarn();
 
+    List<Integer> getCookHatWarn();
+
+    List<Integer> getCookMaskWarn();
+
+    List<Integer> getCookClothesWarn();
 }

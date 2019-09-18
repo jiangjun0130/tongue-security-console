@@ -21,9 +21,36 @@ public class WarningController extends BaseController<WarningController> {
      * 获取厨师穿戴衣帽告警信息
      * @return
      */
-    @GetMapping("cook")
-    public ResponseData getCookWarn() {
-        return ResponseDataUtil.buildSuccess(messageService.getCookWarn());
+//    @GetMapping("cook")
+//    public ResponseData getCookWarn() {
+//        return ResponseDataUtil.buildSuccess(messageService.getCookWarn());
+//    }
+
+    /**
+     * 白色厨师帽
+     * @return
+     */
+    @GetMapping("cookHat")
+    public ResponseData getCookHatWarn() {
+        return ResponseDataUtil.buildSuccess(messageService.getCookHatWarn());
+    }
+
+    /**
+     * 白色口罩
+     * @return
+     */
+    @GetMapping("cookMask")
+    public ResponseData getCookMaskWarn() {
+        return ResponseDataUtil.buildSuccess(messageService.getCookMaskWarn());
+    }
+
+    /**
+     * 未穿白色厨师服
+     * @return
+     */
+    @GetMapping("cookClothes")
+    public ResponseData getCookClothesWarn() {
+        return ResponseDataUtil.buildSuccess(messageService.getCookClothesWarn());
     }
 
     /**
