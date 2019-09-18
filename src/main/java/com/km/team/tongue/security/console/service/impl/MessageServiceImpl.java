@@ -89,6 +89,28 @@ public class MessageServiceImpl implements IMessageService {
     }
 
     @Override
+    public List<Integer> getDegreeHumidityWarn() {
+        HashMap<String, Object> humidityMap = mapperCustom.getTotal("131627");
+        return map2List(humidityMap);
+    }
+
+    @Override
+    public List<Integer> getDegreeTemperatureWarn() {
+        HashMap<String, Object> temperatureMap = mapperCustom.getTotal("131625");
+        return map2List(temperatureMap);
+    }
+
+    @Override
+    public List<Integer> getDegreeCertificateWarn() {
+        List<String> listId = new ArrayList<>(3);
+        listId.add("131668");
+        listId.add("131669");
+        listId.add("131672");
+        HashMap<String, Object> certificateMap = mapperCustom.getTotalByListKey(listId);
+        return map2List(certificateMap);
+    }
+
+    @Override
     public Map<String, List<Integer>> getCabinetWarn() {
         Map<String, List<Integer>> map = new HashMap<>(3);
         // 消毒柜

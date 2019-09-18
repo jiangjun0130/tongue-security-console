@@ -34,4 +34,10 @@ public interface IMessageService {
     List<Integer> getCookMaskWarn();
 
     List<Integer> getCookClothesWarn();
+
+    List<Integer> getDegreeHumidityWarn();
+
+    List<Integer> getDegreeTemperatureWarn();
+
+    List<Integer> getDegreeCertificateWarn();
 }

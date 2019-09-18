@@ -57,9 +57,36 @@ public class WarningController extends BaseController<WarningController> {
      * 温度、湿度、持证上岗统计
      * @return
      */
-    @GetMapping("degree")
-    public ResponseData getDegreeWarn() {
-        return ResponseDataUtil.buildSuccess(messageService.getDegreeWarn());
+//    @GetMapping("degree")
+//    public ResponseData getDegreeWarn() {
+//        return ResponseDataUtil.buildSuccess(messageService.getDegreeWarn());
+//    }
+
+    /**
+     * 统计当天 湿度 告警
+     * @return
+     */
+    @GetMapping("degreeHumidity")
+    public ResponseData getDegreeHumidityWarn() {
+        return ResponseDataUtil.buildSuccess(messageService.getDegreeHumidityWarn());
+    }
+
+    /**
+     * 统计当天 温度 告警
+     * @return
+     */
+    @GetMapping("degreeTemperature")
+    public ResponseData getDegreeTemperatureWarn() {
+        return ResponseDataUtil.buildSuccess(messageService.getDegreeTemperatureWarn());
+    }
+
+    /**
+     * 统计当天 持证上岗 告警
+     * @return
+     */
+    @GetMapping("degreeCertificate")
+    public ResponseData getDegreeCertificateWarn() {
+        return ResponseDataUtil.buildSuccess(messageService.getDegreeCertificateWarn());
     }
 
     /**
