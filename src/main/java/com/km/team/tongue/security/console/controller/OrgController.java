@@ -3,9 +3,11 @@ package com.km.team.tongue.security.console.controller;
 import com.km.team.tongue.security.console.beans.vo.ResponseData;
 import com.km.team.tongue.security.console.controller.base.BaseController;
 import com.km.team.tongue.security.console.utils.ResponseDataUtil;
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.text.NumberFormat;
 import java.util.HashMap;
@@ -19,6 +21,7 @@ import java.util.Map;
  * Description:
  */
 @RestController
+@Scope(value = WebApplicationContext.SCOPE_REQUEST)
 @RequestMapping("org")
 public class OrgController extends BaseController<CameraController> {
 
