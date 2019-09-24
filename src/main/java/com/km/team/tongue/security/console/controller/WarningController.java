@@ -63,7 +63,7 @@ public class WarningController extends BaseController<WarningController> {
 //    }
 
     /**
-     * 统计当天 湿度 告警
+     * 统计当allJoinTotal天 湿度 告警
      * @return
      */
     @GetMapping("degreeHumidity")
