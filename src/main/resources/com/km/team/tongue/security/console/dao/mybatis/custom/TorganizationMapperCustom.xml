@@ -20,7 +20,7 @@
     select count(1)
     from torganization t
     where t.is_enable=true
-    and yearweek(str_to_date(t.create_time, '%Y-%m-%d')) = yearweek(now())-1
+    and yearweek(str_to_date(t.create_time, '%Y-%m-%d'),1) = yearweek(now(),1)-1
   </select>
 
   <select id="getRealTimeOrgJoin" resultType="hashMap">
@@ -55,6 +55,6 @@
   <select id="getWeekIncrTotal" resultType="int">
     select count(1)
     from torganization t
-    where yearweek(str_to_date(t.create_time, '%Y-%m-%d')) = yearweek(now()) and t.is_enable=true
+    where yearweek(str_to_date(t.create_time, '%Y-%m-%d'), 1) = yearweek(now(), 1) and t.is_enable=true
   </select>
 </mapper>

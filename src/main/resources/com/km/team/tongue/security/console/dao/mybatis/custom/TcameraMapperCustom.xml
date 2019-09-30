@@ -19,7 +19,7 @@
           and t.controlUnitName=#{value}
         </if>
     )
-    and yearweek(str_to_date(c.creat_time, '%Y-%m-%d')) = yearweek(now())
+    and yearweek(str_to_date(c.creat_time, '%Y-%m-%d'),1) = yearweek(now(),1)
   </select>
 
   <select id="getLastWeekTotal" resultType="int" parameterType="string">
@@ -31,7 +31,7 @@
           and t.controlUnitName=#{value}
       </if>
     )
-    and yearweek(str_to_date(c.creat_time, '%Y-%m-%d')) = yearweek(now())-1
+    and yearweek(str_to_date(c.creat_time, '%Y-%m-%d'),1) = yearweek(now(),1)-1
       <![CDATA[
     and str_to_date(c.creat_time, '%Y-%m-%d') < date_format(DATE_SUB(now(), interval 6 day), '%Y-%m-%d')
     ]]>
@@ -64,7 +64,7 @@
   <select id="getWeekIncrTotal" resultType="int">
       select count(1)
       from tcamera c
-      where yearweek(str_to_date(c.creat_time, '%Y-%m-%d')) = yearweek(now())
+      where yearweek(str_to_date(c.creat_time, '%Y-%m-%d'), 1) = yearweek(now(), 1)
   </select>
 
     <select id="getCurrentWeekTotal2" resultType="int" parameterType="list">
@@ -78,7 +78,7 @@
             #{item}
         </foreach>
         )
-        and yearweek(str_to_date(c.creat_time, '%Y-%m-%d')) = yearweek(now())
+        and yearweek(str_to_date(c.creat_time, '%Y-%m-%d'),1) = yearweek(now(),1)
     </select>
 
     <select id="getLastWeekTotal2" resultType="int" parameterType="list">
@@ -93,7 +93,7 @@
             #{item}
         </foreach>
         )
-        and yearweek(str_to_date(c.creat_time, '%Y-%m-%d')) = yearweek(now())-1
+        and yearweek(str_to_date(c.creat_time, '%Y-%m-%d'),1) = yearweek(now(),1)-1
         <![CDATA[
         and str_to_date(c.creat_time, '%Y-%m-%d') < date_format(DATE_SUB(now(), interval 6 day), '%Y-%m-%d')
         ]]>
